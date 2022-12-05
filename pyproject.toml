@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "random-filters"
-version = "1.5.3"
+version = "1.5.4"
 description = "A package for generating random filters"
 authors = ["Renan <renancavalcantercb@protonmail.com>"]
 readme = "README.md"
