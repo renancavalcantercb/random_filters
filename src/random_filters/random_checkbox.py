@@ -1,19 +1,22 @@
-from random import randint, choice
+from random import choice, randint
 
 
-def checkbox():
+def get_random_checkbox(checkboxes=None, probability=0.5):
     """
-        It is a function with the equivalent values of the present checkboxes in the question.
+    Returns a random checkbox from the given list of checkboxes with a given probability.
 
-        :return: A random checkbox between the present checkboxes.
-        :rtype: str
+    :param checkboxes: A list of checkbox options (default: None).
+    :type checkboxes: list of str
 
-        :Example:
-            >>> checkbox()
+    :param probability: The probability of returning a checkbox (default: 0.5).
+    :type probability: float
+
+    :return: A random checkbox from the given list or an empty string if no checkbox is selected.
+    :rtype: str
     """
-    random_choice = randint(1, 2)
-    if random_choice == 1:
-        checkbox = ['almoco', 'jantar', 'final de semana', 'dia de semana']
-        return choice(checkbox)
-    else:
-        return ''
+    if checkboxes is None:
+        checkboxes = ['almoco', 'jantar', 'final de semana', 'dia de semana']
+
+    probability = min(max(probability, 0), 1)
+
+    return choice(checkboxes) if randint(0, 100) / 100 <= probability else ''
